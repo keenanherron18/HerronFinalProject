@@ -9,7 +9,7 @@ public class ProgramDriver {
 
         // testing CaliforniaTaxCalculator and TaxManager class
         TaxManager testManager = new TaxManager();
-        TaxPayer test = new TaxPayer(100000, "single", "CA");
+        TaxPayer test = new TaxPayer(100000, "single", "IA");
 
         double tax = testManager.calculateTaxFor(test);
 

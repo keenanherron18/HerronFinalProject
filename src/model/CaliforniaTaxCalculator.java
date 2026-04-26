@@ -50,16 +50,16 @@ public class CaliforniaTaxCalculator extends TaxCalculator {
     @Override
     public double calculateTax(TaxPayer taxPayer) {
         double taxableIncome = super.getTaxableIncome(taxPayer);
-
         String status = taxPayer.getStatus();
 
         double taxRate = calculateTaxRate(taxableIncome, status);
-
         double tax = taxableIncome * taxRate;
 
         tax = applyCredit(tax);
         tax = Math.max(0, tax);
 
         return tax;
+
+        // https://nationaltaxreports.com/california-tax-brackets/ used for source
     }
 }
