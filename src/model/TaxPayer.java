@@ -40,7 +40,7 @@ public class TaxPayer {
 
     @Override
     public String toString() {
-        return super.toString();
+            return "TaxPayer{" + "income=" + income + ", status='" + status + '\'' + ", state='" + state + '\'' + '}';
     }
 
     @Override

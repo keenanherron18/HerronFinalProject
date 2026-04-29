@@ -1,7 +1,9 @@
 package driver;
 
+import model.TaxCalculator;
 import model.TaxManager;
 import model.TaxPayer;
+import model.FileManager;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -38,13 +40,13 @@ public class ProgramDriver {
             while (stateValidation) {
                 try {
                     System.out.print("Enter state (CA/TX/IA): ");
-                    state = scanner.nextLine();
+                    state = scanner.nextLine().toUpperCase();
 
                     if (!state.equals("CA") && !state.equals("TX") && !state.equals("IA")) {
                         throw new IllegalArgumentException("Invalid state entered.");
                     }
 
-                    stateValidation = false;
+                    break;
                 } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
@@ -72,6 +74,9 @@ public class ProgramDriver {
             System.out.printf("Tax owed: $%.2f%n", tax);
             System.out.println("----------------------");
         }
+
+        FileManager fileManager = new FileManager();
+        fileManager.writeToFile(taxpayers, manager);
 
         scanner.close();
     }
