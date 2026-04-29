@@ -1,7 +1,7 @@
 package model;
 
 public class TaxManager {
-    public TaxCalculator selectState(String state) {
+    public TaxCalculator selectStateCalculator(String state) {
         if (state == null) {
             throw new IllegalArgumentException("State cannot be null");
         } else if (state.equalsIgnoreCase("CA")) {
@@ -11,12 +11,12 @@ public class TaxManager {
         } else if (state.equalsIgnoreCase("TX")) {
             return new TexasTaxCalculator();
         } else {
-            return null;
+            throw new IllegalArgumentException("Invalid state entered");
         }
     }
 
     public double calculateTaxFor(TaxPayer taxPayer) {
-        TaxCalculator calculator = selectState(taxPayer.getState());
+        TaxCalculator calculator = selectStateCalculator(taxPayer.getState());
         return calculator.calculateTax(taxPayer);
     }
 }
