@@ -1,6 +1,8 @@
 package model;
 
 public abstract class TaxCalculator {
+    // Calculates taxable income after deductions based on filing status
+    // TaxPayer --> double
     public double getTaxableIncome(TaxPayer taxPayer) {
         double income = taxPayer.getIncome();
         final double SINGLE_DEDUCTION = 5000;
@@ -17,5 +19,7 @@ public abstract class TaxCalculator {
         return taxableIncome;
     }
 
+    // Abstract method that calculates tax owed (implemented by each state-specific subclass)
+    // TaxPayer --> double
     public abstract double calculateTax(TaxPayer taxPayer);
 }

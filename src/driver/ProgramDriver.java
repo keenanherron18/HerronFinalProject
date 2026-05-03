@@ -1,6 +1,18 @@
+/*
+ * Keenan Herron - kherron2
+ * CIS171 Wed Afternoon
+ * Date: 5/2/2026
+ * Operating System: Windows 11
+ * IDE: IntelliJ
+ * Program Description(short): This program will calculate your taxes based on income, relationship status, and state,
+ * then write the results to a text file.
+ * Academic Honesty: I attest that this is my original work.
+ * I have not used unauthorized source code, either modified or unmodified
+ * Resources used (AI, websites, YouTube, peers, etc)
+ */
+
 package driver;
 
-import model.TaxCalculator;
 import model.TaxManager;
 import model.TaxPayer;
 import model.FileManager;
@@ -10,7 +22,6 @@ import java.util.ArrayList;
 public class ProgramDriver {
     public static void main(String[] args) {
         boolean running = true;
-        boolean stateValidation = true;
 
         Scanner scanner = new Scanner(System.in);
         TaxManager manager = new TaxManager();
@@ -18,6 +29,7 @@ public class ProgramDriver {
         ArrayList<TaxPayer> taxpayers = new ArrayList<>();
 
         while (running) {
+            boolean stateValidation = true;
             String state = null;
 
             System.out.print("Enter income: ");
